@@ -135,6 +135,14 @@ async function editarUsuario(id) {
 // MUTATION -> Deletar usuário
 async function deletarUsuario(id) {
 
+   const confirmar = confirm(
+    "Tem certeza que deseja deletar este usuário?"
+  );
+
+  if (!confirmar) {
+    return;
+  }
+
   const query = `
     mutation {
       deletarUsuario(id: ${id})
